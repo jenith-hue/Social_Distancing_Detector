@@ -2,6 +2,8 @@ import numpy as np
 import time
 import cv2
 import math
+import winsound
+
 
 labelsPath = "./coco.names"
 LABELS = open(labelsPath).read().strip().split("\n")
@@ -84,7 +86,9 @@ for i in nsd:
     cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
     text = "Alert"
     cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
-           
+frequency = 500  
+duration = 5000  
+winsound.Beep(frequency, duration)           
 cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
 cv2.imshow("Social Distancing Detector", image)
 cv2.imwrite('output.jpg', image)
