@@ -85,10 +85,11 @@ for i in nsd:
     (w, h) = (boxes[i][2], boxes[i][3])
     cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
     text = "Alert"
+    frequency = 500  
+    duration = 5000  
+    winsound.Beep(frequency, duration) 
     cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
-frequency = 500  
-duration = 5000  
-winsound.Beep(frequency, duration)           
+          
 cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
 cv2.imshow("Social Distancing Detector", image)
 cv2.imwrite('output.jpg', image)
