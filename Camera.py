@@ -2,6 +2,8 @@ import numpy as np
 import time
 import cv2
 import math
+import winsound
+
 
 labelsPath = "./coco.names"
 LABELS = open(labelsPath).read().strip().split("\n")
@@ -89,6 +91,9 @@ while(cap.isOpened()):
     if len(idxs) > 0:
         for i in idxs.flatten():
             if (i in nsd):
+		frequency = 700  
+                duration = 500  
+                winsound.Beep(frequency, duration)
                 break
             else:
                 (x, y) = (boxes[i][0], boxes[i][1])
