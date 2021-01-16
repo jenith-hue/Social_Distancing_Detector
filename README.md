@@ -4,4 +4,4 @@
 
 
 
-*For real time data input and output make use of camera.py*
+*For real time data input and output make use of *
